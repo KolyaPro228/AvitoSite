@@ -1,141 +1,128 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="Simple Shopping Cart - Browse our products">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Shopping Cart - Products</title>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" as="style" crossorigin>
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
-        body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background-size:cover}
-        .container{width:100%;max-width:1200px;margin:0 auto}
-        .logo{font-size:72px;background:linear-gradient(var(--very-dark-gray),#757575,var(--very-dark-gray));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-    </style>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <h1 class="logo">S C</h1>
-            <ul class="nav-menu">
-                <a href=""><li>Home</li></a>
-                <a href=""><li>About</li></a>
-                <a href="" class="active"><li>Products</li></a>
-                <a href=""><li>FAQ</li></a>
-                <a href=""><li>Contact</li></a>
-            </ul>
-            <i class="fa-solid fa-bars"></i>
-            <ul class="nav-menu-mobile">
-                <a href=""><li>Home</li></a>
-                <a href=""><li>About</li></a>
-                <a href="" class="active"><li>Products</li></a>
-                <a href=""><li>FAQ</li></a>
-                <a href=""><li>Contact</li></a>
-            </ul>
+      <nav>
+        <h1 class="logo">S C</h1>
+        <ul class="nav-menu">
+          <a href=""><li>Home</li></a>
+          <a href=""><li>About</li></a>
+          <a href="" class="active"><li>Products</li></a>
+          <a href=""><li>FAQ</li></a>
+          <a href=""><li>Contact</li></a>
+        </ul>
+        <i class="fa-solid fa-bars"></i>
+        <ul class="nav-menu-mobile">
+          <a href=""><li>Home</li></a>
+          <a href=""><li>About</li></a>
+          <a href="" class="active"><li>Products</li></a>
+          <a href=""><li>FAQ</li></a>
+          <a href=""><li>Contact</li></a>
+        </ul>
 
-            <div class="nav-right">
-                <div class="search-and-cart">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-cart-shopping">
-                        <div class="cart-red-dot"></div>
-                    </i>
-                    <h4 class="cart-notification">Product successfully added to cart</h4>
+        <div class="nav-right">
+          <div class="search-and-cart">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping">
+              <div class="cart-red-dot"></div>
+            </i>
+            <h4 class="cart-notification">
+              Product successfully added to cart
+            </h4>
+          </div>
+          <div class="cart-modal-overlay">
+            <div class="cart-modal">
+              <h3 class="no-item-message">Your cart is empty.</h3>
+              <i class="close-cart-modal fa-regular fa-circle-xmark"></i>
+              <!-- INSERT PRODUCT HERE -->
+              <div class="cart-modal-bottom">
+                <div class="total-price">
+                  <h4>Total amount: <span>$0</span></h4>
                 </div>
-                <div class="cart-modal-overlay">
-                    <div class="cart-modal">
-                        <h3 class="no-item-message">Your cart is empty.</h3>
-                        <i class="close-cart-modal fa-regular fa-circle-xmark"></i>
-                        <div class="cart-modal-bottom">
-                            <div class="total-price">
-                                <h4>Total amount: <span>$0</span></h4>
-                            </div>
-                            <div>
-                                <button class="continue-shopping">Continue Shopping</button>
-                                <button class="view-order">View Order</button>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <button class="continue-shopping">Continue Shopping</button>
+                  <button class="view-order">View Order</button>
                 </div>
-                <div class="toggle-theme">
-                    <div class="toggler"></div>
-                    <i class="fa-solid fa-moon"></i>
-                    <i class="fa-solid fa-sun"></i>
-                </div>
+              </div>
             </div>
-        </nav>
+          </div>
+          <div class="toggle-theme">
+            <div class="toggler"></div>
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </div>
+        </div>
+        <div></div>
+      </nav>
     </header>
-    
     <main>
-        <section>
-            <h2 class="heading">Random Products</h2>
-            <div class="random-product">
-                <div class="main-product" data-id="0" data-category="headset">
-                    <img src="./images/headset1.webp" class="product-image" alt="Loqi X332 Headset" loading="lazy" width="300" height="300">
-                    <div class="main-product-info">
-                        <h3>Loqi X332 Wired Headset</h3>
-                        <h4>Price: <span>$80</span></h4>
-                        <select name="quantity" class="quantity">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <button class="add-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Другие товары... -->
-            </div>
-        </section>
-        
-        <section class="product-by-category">
-            <h2 class="heading">Products By Category</h2>
-            <ul class="product-categories">
-                <li class="active">Headsets</li>
-                <li>Keyboards</li>
-                <li>Mouse</li>
-                <li>Microphones</li>
-            </ul>
-            <div class="category-product">
-                <!-- Товары по категориям -->
-            </div>
-        </section>
+      <section>
+        <h2 class="heading">Random Products</h2>
+        <div class="random-product">
+          <!-- INSERT PRODUCT HERE -->
+        </div>
+      </section>
+      <section class="product-by-category">
+        <h2 class="heading">Products By Category</h2>
+        <ul class="product-categories">
+          <li>Headsets</li>
+          <li>Keyboards</li>
+          <li>Mouse</li>
+          <li>Microphones</li>
+        </ul>
+        <div class="category-product">
+          <!-- INSERT PRODUCT HERE -->
+        </div>
+      </section>
     </main>
-
     <footer>
-        <div class="footer-top">
-            <h1 class="logo">S C</h1>
-            <div class="footer-menu">
-                <h3>Menu</h3>
-                <ul>
-                    <a href=""><li>Home</li></a>
-                    <a href=""><li>About</li></a>
-                    <a href=""><li>Products</li></a>
-                    <a href=""><li>FAQ</li></a>
-                    <a href=""><li>Contact</li></a>
-                </ul>
-            </div>
-            <div class="footer-middle">
-                <h3>Contact details</h3>
-                <p>Address: <span>31, Maningham Drive, VIC, 3000 Australia</span></p>
-                <p>Phone: <span>0412341234</span></p>
-            </div>
-            <div class="footer-right">
-                <h3>Connect with us</h3>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-            </div>
+      <div class="footer-top">
+        <h1 class="logo">S C</h1>
+        <div class="footer-menu">
+          <h3>Menu</h3>
+          <ul>
+            <a href=""><li>Home</li></a>
+            <a href=""><li>About</li></a>
+            <a href=""><li>Products</li></a>
+            <a href=""><li>FAQ</li></a>
+            <a href=""><li>Contact</li></a>
+          </ul>
         </div>
-        <div class="footer-bottom">
-            <p>Copyright <i class="fa-regular fa-copyright"></i> Website by Li Chuan Yeoh (Rachel) <br>Images from unsplash.com</p>
+        <div class="footer-middle">
+          <h3>Contact details</h3>
+          <p>
+            Address:
+            <span class="footer-address"
+              >31, Maningham Drive, VIC, 3000 Australia</span
+            >
+          </p>
+          <p>Phone: <span class="footer-phone">0412341234</span></p>
         </div>
+        <div class="footer-right">
+          <h3>Connect with us</h3>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          Copyright <i class="fa-regular fa-copyright"></i> Website by Li Chuan
+          Yeoh (Rachel) <br />
+          Images from unsplash.com
+        </p>
+      </div>
     </footer>
-
-    <script src="./script.js" defer></script>
-</body>
+  </body>
+  <script src="./script.js"></script>
 </html>
