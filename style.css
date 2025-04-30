@@ -1,16 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-
-/* Universal style */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    
-}
-
 :root {
     --container-30-opacity: rgba(255, 255, 255, 0.3);
     --container-70-opacity: rgba(255, 255, 255, 0.7);
@@ -19,11 +6,19 @@
     --very-dark-gray: rgb(47, 47, 47);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
     background-image: url("./images/background-light.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--very-dark-gray);
+    font-display: swap;
 }
 
 ul > a:hover, .search-and-cart i:hover, .fa-brands:hover, li:hover, .fa-circle-xmark:hover {
@@ -39,7 +34,7 @@ h3, h4, label {
     font-weight: bold;
 }
 
-span{
+span {
     font-weight: 300;
 }
 
@@ -50,14 +45,15 @@ button {
     background: var(--buttons);
     border-radius: 15px;
     cursor: pointer;
+    transition: all 0.2s ease;
+    will-change: transform;
 }
-
 
 button:hover {
     background: var(--container-30-opacity);
+    transform: translate(15px, -2px);
 }
 
-/* Dark theme */
 .dark {
     color: white;
     background-image: url("./images/background-dark.jpg");
@@ -109,9 +105,6 @@ button:hover {
     color: var(--container-30-opacity);
 }
 
-
-/* Navigation bar */
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -132,12 +125,13 @@ nav {
     background: -webkit-linear-gradient(var(--very-dark-gray), rgb(117, 117, 117), var(--very-dark-gray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  
+    will-change: background;
 }
 
 .nav-menu {
     display: flex;
     flex: 0.6;
+    gap: 20px;
 }
 
 .nav-menu a {
@@ -149,90 +143,15 @@ nav {
     color: var(--very-dark-gray);
 }
 
-.fa-bars ,.nav-menu-mobile {
+.fa-bars, .nav-menu-mobile {
     display: none;
 }
-
-/* Nav right */
-
-/* CART MODAL */
-.cart-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(126, 126, 126, 0.6);
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-}
-
-
-.cart-modal {
-    display: none;
-    background-color: var(--container-70-opacity);
-    backdrop-filter: blur(3px);
-    border-radius: 15px;
-    padding: 2rem;
-    position: fixed;
-    top: 100px;
-    right: 150px;
-    z-index: 1;
-    height: 80vh;
-    overflow: scroll; 
-}
-
-::-webkit-scrollbar {
-    cursor:pointer;
-    width: 1rem;
-}
-  
-::-webkit-scrollbar-thumb {
-    background: var(--buttons);
-    border-radius: 1rem;
-    cursor: pointer;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--container-70-opacity);
-}
-
-::-webkit-scrollbar-corner {
-    background: rgba(0,0,0,0);
-  }
-
-.cart-modal-product {
-    display: flex;
-    margin: 1rem 2rem 2rem 0.5rem;
-}
-
-.cart-modal-product-info > * , .no-item-message{
-    margin: 1rem;
-}
-
-.cart-modal-product-info h3, .cart-modal-product-info h4 {
-    font-weight: bold;
-}
-
-.cart-modal-remove-btn {
-    margin: 0;
-}
-
-.cart-modal-bottom {
-    border-top: 3px solid var(--container-70-opacity);
-    margin-top: 20px;
-}
-
-.total-price {
-    margin: 1rem;
-}
-/* END OF CART MODAL */
 
 .nav-right {
     display: flex;
 }
 
-.search-and-cart{
+.search-and-cart {
     display: flex;
     align-items: center;
 }
@@ -273,8 +192,58 @@ nav {
     cursor: default;
 }
 
-/* Toggler */
+.cart-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(126, 126, 126, 0.6);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
 
+.cart-modal {
+    display: none;
+    background-color: var(--container-70-opacity);
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    padding: 2rem;
+    position: fixed;
+    top: 100px;
+    right: 150px;
+    z-index: 1;
+    height: 80vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+.cart-modal-product {
+    display: flex;
+    margin: 1rem 2rem 2rem 0.5rem;
+}
+
+.cart-modal-product-info > *, .no-item-message {
+    margin: 1rem;
+}
+
+.cart-modal-product-info h3, .cart-modal-product-info h4 {
+    font-weight: bold;
+}
+
+.cart-modal-remove-btn {
+    margin: 0;
+}
+
+.cart-modal-bottom {
+    border-top: 3px solid var(--container-70-opacity);
+    margin-top: 20px;
+}
+
+.total-price {
+    margin: 1rem;
+}
 
 .toggle-theme {
     display: flex;
@@ -302,12 +271,9 @@ nav {
                 inset 4px 4px 10px rgba(175, 175, 175, 0.2);     
     height: 18px;
     width: 18px;
-    transform: translate(10px, 0)
+    transform: translate(10px, 0);
+    will-change: transform;
 }
-
-
-
-/* Main */
 
 main {
     background-color: var(--container-30-opacity);
@@ -318,7 +284,6 @@ main {
     border-radius: 30px;
 }
 
-
 .heading {
     text-align: center;
     margin: 4% auto;
@@ -328,6 +293,7 @@ main {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .main-product {
@@ -335,13 +301,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin: 1rem auto;
-}
-
-.product-by-category ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    margin-bottom: 4%;
+    will-change: transform;
 }
 
 .product-image {
@@ -349,6 +309,7 @@ main {
     width: 15rem;
     object-fit: cover;
     border-radius: 30px;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .main-product-info {
@@ -376,8 +337,6 @@ main {
     border-radius: 30px;
 }
 
-
-/* Cart Page */
 .cart-product {
     position: relative;
     margin: 4% 30rem 4% 0;
@@ -436,7 +395,6 @@ main {
     grid-gap: 2rem;
 }
 
-
 .cart-footer-text {
     margin-left: 20px;
     padding-top: 1.5rem;
@@ -454,9 +412,6 @@ main {
     padding: 1rem;
 }
 
-
-
-/* Footer */
 .footer-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -576,6 +531,7 @@ main {
         margin-left: 0.5rem;
         font-size: 1rem !important;
     }
+    
     .fa-bars {
         display: flex;
         position: relative;
@@ -636,7 +592,6 @@ main {
         align-items: center;
     }
     
-
     .footer-top {
         grid-template-columns:1fr;
         justify-items: center;
